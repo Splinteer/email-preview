@@ -77,11 +77,13 @@ pnpm dev   # playground on http://localhost:5177
 
 ### Link into another monorepo (e.g. Supply Data Hub)
 
+From a sibling checkout under `~/Developer` (e.g. `supplydatahub/supplydatahub`):
+
 ```json
 {
   "dependencies": {
-    "@supplydatahub/email-preview": "file:../email-preview/packages/core",
-    "@supplydatahub/email-preview-angular": "file:../email-preview/packages/angular/dist"
+    "@supplydatahub/email-preview": "file:../../email-preview/packages/core",
+    "@supplydatahub/email-preview-angular": "file:../../email-preview/packages/angular/dist"
   }
 }
 ```

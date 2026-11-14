@@ -1,0 +1,55 @@
+{
+  "name": "@supplydatahub/email-preview",
+  "version": "0.1.0",
+  "description": "Real-time B2B email client preview — compose @emailens/engine with B2B gateway toggles",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@emailens/engine": "^0.19.1",
+    "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.0"
+  },
+  "keywords": [
+    "email",
+    "preview",
+    "outlook",
+    "gmail",
+    "apple-mail",
+    "caniemail",
+    "html-email"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supplydatahub/email-preview.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@supplydatahub/email-preview-angular",
+  "version": "0.1.0",
+  "description": "Angular standalone iframe preview for @supplydatahub/email-preview",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "peerDependencies": {
+    "@angular/common": ">=19.0.0",
+    "@angular/core": ">=19.0.0",
+    "@angular/platform-browser": ">=19.0.0",
+    "@supplydatahub/email-preview": "^0.1.0"
+  },
+  "dependencies": {
+    "tslib": "^2.8.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "@supplydatahub/email-preview": "workspace:*",
+    "ng-packagr": "^21.0.0",
+    "typescript": "~5.9.0"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "angular",
+    "email",
+    "preview",
+    "outlook",
+    "gmail"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supplydatahub/email-preview.git",
+    "directory": "packages/angular"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

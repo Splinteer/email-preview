@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist-tsc",
+    "rootDir": "src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "types": []
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "strictTemplates": true
+  },
+  "include": ["src"]
+}

@@ -29,14 +29,17 @@ export interface EmailPreviewComponentInputs {
         [attr.srcdoc]="srcdoc()"
       ></iframe>
       @if (showWarnings() && warnings().length) {
-        <ul class="sdh-email-preview__warnings">
-          @for (warning of warnings(); track warning.client + warning.property + warning.message) {
-            <li>
-              <strong>{{ warning.client }}</strong>
-              · {{ warning.property }} — {{ warning.message }}
-            </li>
-          }
-        </ul>
+        <aside class="sdh-email-preview__warnings" role="status" aria-live="polite">
+          <p class="sdh-email-preview__warnings-title">{{ warningsTitle() }}</p>
+          <ul class="sdh-email-preview__warnings-list">
+            @for (warning of warnings(); track warning.client + warning.property + warning.message) {
+              <li>
+                <strong>{{ warning.client }}</strong>
+                · {{ warning.property }} — {{ warning.message }}
+              </li>
+            }
+          </ul>
+        </aside>
       }
     </div>
   `,
@@ -69,17 +72,30 @@ export interface EmailPreviewComponentInputs {
 
     .sdh-email-preview__warnings {
       margin: 0;
-      padding: 8px 12px;
-      max-height: 120px;
+      padding: 10px 12px;
+      max-height: 160px;
       overflow: auto;
-      list-style: none;
-      border-top: 1px solid #e2e8f0;
-      font: 12px/1.4 system-ui, sans-serif;
-      color: #475569;
-      background: #f8fafc;
+      border-top: 1px solid #f0c36d;
+      background: #fff7ed;
+      color: #9a3412;
+      font: 12px/1.45 system-ui, sans-serif;
     }
 
-    .sdh-email-preview__warnings li + li {
+    .sdh-email-preview__warnings-title {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      color: #c2410c;
+    }
+
+    .sdh-email-preview__warnings-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sdh-email-preview__warnings-list li + li {
       margin-top: 4px;
     }
   `,
@@ -96,6 +112,8 @@ export class EmailPreviewComponent {
   readonly appleAutoLink = input(true);
   readonly vmlFallback = input(true);
   readonly showWarnings = input(false);
+  /** Shown above the warning list when it appears. */
+  readonly warningsTitle = input('Compatibility warnings');
 
   readonly result = computed<PreviewResult>(() =>
     previewEmail(this.html(), {

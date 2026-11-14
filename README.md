@@ -88,7 +88,13 @@ pnpm dev   # playground on http://localhost:5177
 
 Build both packages first. Or use `pnpm link`.
 
+## Repository
+
+https://github.com/Splinteer/email-preview
+
 ## Publish
+
+Requires npm login and access to the `@supplydatahub` scope (or rename the package scope before first publish).
 
 ```bash
 pnpm --filter @supplydatahub/email-preview build
@@ -99,7 +105,7 @@ pnpm publish --access public
 pnpm publish --access public
 ```
 
-CI publishes on GitHub Release when `NPM_TOKEN` is configured.
+CI publishes on GitHub Release when repository secret `NPM_TOKEN` is configured.
 
 ## Attribution
 
